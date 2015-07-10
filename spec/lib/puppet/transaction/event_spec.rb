@@ -21,9 +21,9 @@ describe Puppet::Transaction::Event do
         expect(event).to be_a Puppet::Transaction::Event
         expect(event.to_h).to be_a Hash
         expect(event.to_h).not_to be_a Puppet::Transaction::Event
-        subject.each do |k,m|
-          expect(m.to_h).to be_a Hash
-          m.to_h.keys.each do |key|
+        subject.each do |e|
+          expect(e.to_h).to be_a Hash
+          e.to_h.keys.each do |key|
             expect(key).to be_a Symbol
           end
         end
