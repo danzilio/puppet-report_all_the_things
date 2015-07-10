@@ -1,0 +1,250 @@
+--- !ruby/object:Puppet::Transaction::Report
+  kind: apply
+  host: agent.test.com
+  metrics:
+    time: !ruby/object:Puppet::Util::Metric
+      values:
+        - - config_retrieval
+          - "Config retrieval"
+          - 0.027587
+        - - filebucket
+          - Filebucket
+          - 9.9e-05
+        - - notify
+          - Notify
+          - 0.000639
+        - - total
+          - Total
+          - 0.028325
+      label: Time
+      name: time
+    resources: !ruby/object:Puppet::Util::Metric
+      values:
+        - - restarted
+          - Restarted
+          - 0
+        - - scheduled
+          - Scheduled
+          - 0
+        - - skipped
+          - Skipped
+          - 6
+        - - changed
+          - Changed
+          - 1
+        - - failed_to_restart
+          - "Failed to restart"
+          - 0
+        - - out_of_sync
+          - "Out of sync"
+          - 1
+        - - failed
+          - Failed
+          - 0
+        - - total
+          - Total
+          - 8
+      label: Resources
+      name: resources
+    events: !ruby/object:Puppet::Util::Metric
+      values:
+        - - failure
+          - Failure
+          - 0
+        - - success
+          - Success
+          - 1
+        - - total
+          - Total
+          - 1
+      label: Events
+      name: events
+    changes: !ruby/object:Puppet::Util::Metric
+      values:
+        - - total
+          - Total
+          - 1
+      label: Changes
+      name: changes
+  time: 2015-07-10 15:57:54.746731 -04:00
+  environment: production
+  logs:
+    - !ruby/object:Puppet::Util::Log
+      source: Puppet
+      level: !ruby/sym notice
+      time: 2015-07-10 15:57:56.175693 -04:00
+      tags:
+        - notice
+      message: hello
+    - !ruby/object:Puppet::Util::Log
+      source: /Stage[main]//Notify[hello]/message
+      line: 1
+      level: !ruby/sym notice
+      time: 2015-07-10 15:57:56.175948 -04:00
+      tags:
+        - notice
+        - notify
+        - hello
+        - class
+      message: "defined 'message' as 'hello'"
+    - !ruby/object:Puppet::Util::Log
+      source: Puppet
+      level: !ruby/sym notice
+      time: 2015-07-10 15:57:56.182622 -04:00
+      tags:
+        - notice
+      message: "Finished catalog run in 0.02 seconds"
+  configuration_version: 1436558274
+  status: changed
+  puppet_version: "3.2.4"
+  report_format: 3
+  resource_statuses:
+    Schedule[never]: !ruby/object:Puppet::Resource::Status
+      resource: Schedule[never]
+      file:
+      line:
+      change_count: 0
+      out_of_sync_count: 0
+      tags:
+        - schedule
+        - never
+      time: 2015-07-10 15:57:56.174631 -04:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Schedule
+      title: never
+      skipped: true
+      failed: false
+    Schedule[puppet]: !ruby/object:Puppet::Resource::Status
+      resource: Schedule[puppet]
+      file:
+      line:
+      change_count: 0
+      out_of_sync_count: 0
+      tags:
+        - schedule
+        - puppet
+      time: 2015-07-10 15:57:56.176289 -04:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Schedule
+      title: puppet
+      skipped: true
+      failed: false
+    Schedule[daily]: !ruby/object:Puppet::Resource::Status
+      resource: Schedule[daily]
+      file:
+      line:
+      change_count: 0
+      out_of_sync_count: 0
+      tags:
+        - schedule
+        - daily
+      time: 2015-07-10 15:57:56.169781 -04:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Schedule
+      title: daily
+      skipped: true
+      failed: false
+    Schedule[hourly]: !ruby/object:Puppet::Resource::Status
+      resource: Schedule[hourly]
+      file:
+      line:
+      change_count: 0
+      out_of_sync_count: 0
+      tags:
+        - schedule
+        - hourly
+      time: 2015-07-10 15:57:56.170154 -04:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Schedule
+      title: hourly
+      skipped: true
+      failed: false
+    Filebucket[puppet]: !ruby/object:Puppet::Resource::Status
+      resource: Filebucket[puppet]
+      file:
+      line:
+      evaluation_time: 9.9e-05
+      change_count: 0
+      out_of_sync_count: 0
+      tags:
+        - filebucket
+        - puppet
+      time: 2015-07-10 15:57:56.174933 -04:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Filebucket
+      title: puppet
+      skipped: false
+      failed: false
+    Schedule[monthly]: !ruby/object:Puppet::Resource::Status
+      resource: Schedule[monthly]
+      file:
+      line:
+      change_count: 0
+      out_of_sync_count: 0
+      tags:
+        - schedule
+        - monthly
+      time: 2015-07-10 15:57:56.169984 -04:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Schedule
+      title: monthly
+      skipped: true
+      failed: false
+    Schedule[weekly]: !ruby/object:Puppet::Resource::Status
+      resource: Schedule[weekly]
+      file:
+      line:
+      change_count: 0
+      out_of_sync_count: 0
+      tags:
+        - schedule
+        - weekly
+      time: 2015-07-10 15:57:56.175160 -04:00
+      events: []
+      out_of_sync: false
+      changed: false
+      resource_type: Schedule
+      title: weekly
+      skipped: true
+      failed: false
+    Notify[hello]: !ruby/object:Puppet::Resource::Status
+      resource: Notify[hello]
+      file:
+      line: 1
+      evaluation_time: 0.000639
+      change_count: 1
+      out_of_sync_count: 1
+      tags:
+        - notify
+        - hello
+        - class
+      time: 2015-07-10 15:57:56.175450 -04:00
+      events:
+        - !ruby/object:Puppet::Transaction::Event
+          audited: false
+          property: message
+          previous_value: !ruby/sym absent
+          desired_value: hello
+          historical_value:
+          message: "defined 'message' as 'hello'"
+          name: !ruby/sym message_changed
+          status: success
+          time: 2015-07-10 15:57:56.175606 -04:00
+      out_of_sync: true
+      changed: true
+      resource_type: Notify
+      title: hello
+      skipped: false
+      failed: false
