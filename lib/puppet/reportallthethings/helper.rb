@@ -56,7 +56,7 @@ module Puppet
 
   class Util::TagSet
     def report_all_the_things
-      self.to_a
+      Array(self)
     end
   end
 
