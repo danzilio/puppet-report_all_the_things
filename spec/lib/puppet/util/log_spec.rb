@@ -15,13 +15,13 @@ describe Puppet::Util::Log do
         end
       end
 
-      it 'should have our to_h method' do
+      it 'should have our report_all_the_things method' do
         log = subject.first
-        expect(log).to respond_to(:to_h)
+        expect(log).to respond_to(:report_all_the_things)
         expect(log).to be_a Puppet::Util::Log
-        expect(log.to_h).to be_a Hash
+        expect(log.report_all_the_things).to be_a Hash
 
-        log.to_h.keys.each do |key|
+        log.report_all_the_things.keys.each do |key|
           expect(key).to be_a Symbol
         end
       end

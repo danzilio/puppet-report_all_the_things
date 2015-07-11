@@ -15,13 +15,13 @@ describe Puppet::Util::Metric do
         end
       end
 
-      it 'should have our to_h method' do
+      it 'should have our report_all_the_things method' do
         metric = subject['time']
-        expect(metric).to respond_to(:to_h)
+        expect(metric).to respond_to(:report_all_the_things)
         expect(metric).to be_a Puppet::Util::Metric
         subject.each do |k,m|
-          expect(m.to_h).to be_a Hash
-          m.to_h.keys.each do |key|
+          expect(m.report_all_the_things).to be_a Hash
+          m.report_all_the_things.keys.each do |key|
             expect(key).to be_a Symbol
           end
         end

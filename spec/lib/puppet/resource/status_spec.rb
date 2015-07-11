@@ -12,12 +12,12 @@ describe Puppet::Resource::Status do
         expect(subject).to be_a Hash
       end
 
-      it 'should have our to_h method' do
+      it 'should have our report_all_the_things method' do
         status = subject['Notify[hello]']
-        expect(status).to respond_to(:to_h)
+        expect(status).to respond_to(:report_all_the_things)
         expect(status).to be_a Puppet::Resource::Status
-        expect(status.to_h).to be_a Hash
-        expect(status.to_h).not_to be_a Puppet::Resource::Status
+        expect(status.report_all_the_things).to be_a Hash
+        expect(status.report_all_the_things).not_to be_a Puppet::Resource::Status
       end
     end
   end

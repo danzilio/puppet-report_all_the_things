@@ -12,10 +12,10 @@ describe Puppet::Transaction::Report do
         expect(subject).to be_a Puppet::Transaction::Report
       end
 
-      it 'should have our to_h method' do
-        expect(subject).to respond_to(:to_h)
-        expect(subject.to_h).to be_a Hash
-        expect(subject.to_h).not_to be_a Puppet::Transaction::Report
+      it 'should have our report_all_the_things method' do
+        expect(subject).to respond_to(:report_all_the_things)
+        expect(subject.report_all_the_things).to be_a Hash
+        expect(subject.report_all_the_things).not_to be_a Puppet::Transaction::Report
       end
     end
   end

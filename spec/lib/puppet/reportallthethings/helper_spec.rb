@@ -10,6 +10,7 @@ describe Puppet::ReportAllTheThings::Helper do
 
   it 'should strip the @ sign from an instance variable name and symbolize the string' do
     expect(subject.symbolize('@instance_variable')).to eq :instance_variable
+    expect(subject.symbolize(:@instance_variable)).to eq :instance_variable
   end
 
   it 'should raise an error when passed something other than a string' do
