@@ -139,6 +139,3 @@ DEPENDENCIES
   travis
   travis-lint
   yard
-
-BUNDLED WITH
-   1.10.3
