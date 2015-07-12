@@ -1,6 +1,6 @@
 {
   "name": "danzilio-report_all_the_things",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "author": "David Danzilio",
   "summary": "Dumps the complete Puppet report for processing by a report processor.",
   "license": "Apache-2.0",
