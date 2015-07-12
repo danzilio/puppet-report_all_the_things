@@ -1,6 +1,6 @@
 require 'spec_helper'
 require 'puppet/reportallthethings/helper'
-require_relative File.join(fixture_path, 'reports.rb')
+require File.join(fixture_path, 'reports.rb')
 
 include Reports
 
