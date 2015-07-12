@@ -2,21 +2,39 @@ require 'spec_helper'
 require 'puppet/reportallthethings/helper'
 
 describe Puppet::Transaction::Report do
-  subject { YAML.load_file(report_fixture) }
+  let(:report_fixture) { YAML.load_file(File.join(fixture_path, 'reports', 'data.yaml')) }
+  let(:report) { Puppet::Transaction::Report.from_data_hash(report_fixture) }
+  subject(:converted) { Puppet::ReportAllTheThings::Helper.report_all_the_things(report) }
+  subject { report }
 
-  [4,3,2].each do |v|
-    context "with report format #{v}" do
-      let(:report_fixture) { File.join(@fixture_path, 'reports', "version#{v}.yaml") }
+  it 'should contain a Report object' do
+    expect(subject).to be_a Puppet::Transaction::Report
+  end
 
-      it 'should contain a Report object' do
-        expect(subject).to be_a Puppet::Transaction::Report
-      end
+  context 'when I call report_all_the_things' do
+    subject { Puppet::ReportAllTheThings::Helper.report_all_the_things(report) }
 
-      it 'should have our report_all_the_things method' do
-        expect(subject).to respond_to(:report_all_the_things)
-        expect(subject.report_all_the_things).to be_a Hash
-        expect(subject.report_all_the_things).not_to be_a Puppet::Transaction::Report
-      end
+    it 'should serialize the entire report' do
+      expect(subject).to be_a Hash
+      expect(subject).not_to be_a Puppet::Transaction::Report
+    end
+
+    it 'should serialize all of the metrics objects' do
+      expect(subject['metrics']).to be_a Hash
+      expect(subject['metrics']).not_to be_a Puppet::Util::Metric
+      expect(subject['metrics'].first.last).to be_a Hash
+    end
+
+    it 'should serialize all of the log objects' do
+      expect(subject['logs']).to be_a Array
+      expect(subject['logs']).not_to be_a Puppet::Util::Log
+      expect(subject['logs'].first).to be_a Hash
+    end
+
+    it 'should serialize all of the resource status objects' do
+      expect(subject['resource_statuses']).to be_a Hash
+      expect(subject['resource_statuses'].first).not_to be_a Puppet::Resource::Status
+      expect(subject['resource_statuses'].first).to be_a Array
     end
   end
 end
