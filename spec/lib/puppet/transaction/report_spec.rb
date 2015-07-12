@@ -1,9 +1,10 @@
 require 'spec_helper'
 require 'puppet/reportallthethings/helper'
+require_relative File.join(fixture_path, 'reports.rb')
+
+include Reports
 
 describe Puppet::Transaction::Report do
-  let(:report_fixture) { YAML.load_file(File.join(fixture_path, 'reports', 'data.yaml')) }
-  let(:report) { Puppet::Transaction::Report.from_data_hash(report_fixture) }
   subject(:converted) { Puppet::ReportAllTheThings::Helper.report_all_the_things(report) }
   subject { report }
 
