@@ -8,16 +8,18 @@ describe Puppet::Transaction::Report do
   subject(:converted) { Puppet::ReportAllTheThings::Helper.report_all_the_things(report) }
   subject { report }
 
-  it 'should contain a Report object' do
+  it 'should be a Puppet::Transaction::Report object' do
     expect(subject).to be_a Puppet::Transaction::Report
+    expect(subject.kind).to eq 'apply'
   end
 
-  context 'when I call report_all_the_things' do
+  context 'when I pass report_all_the_things a report object' do
     subject { Puppet::ReportAllTheThings::Helper.report_all_the_things(report) }
 
     it 'should serialize the entire report' do
       expect(subject).to be_a Hash
       expect(subject).not_to be_a Puppet::Transaction::Report
+      expect(subject['kind']).to eq 'apply'
     end
 
     it 'should serialize all of the metrics objects' do

@@ -3,8 +3,8 @@ pkg
 doc
 .yardoc
 .modules
-spec/fixtures/*
-!spec/fixtures/puppet
+spec/fixtures/modules
+spec/fixtures/manifests
 .rspec_system
 .vagrant
 vendor
