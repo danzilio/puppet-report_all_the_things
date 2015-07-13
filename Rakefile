@@ -1,6 +1,7 @@
 require 'rake'
 require 'rspec/core/rake_task'
 require 'metadata-json-lint/rake_task'
+require 'puppetlabs_spec_helper/rake_tasks'
 
 # These two gems aren't always present, for instance
 # on Travis with --without development
